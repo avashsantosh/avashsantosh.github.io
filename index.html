@@ -22,7 +22,7 @@ h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spac
 /* nav */
 nav{position:sticky;top:0;z-index:60;background:rgba(246,242,233,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
-.logo{font-family:'Fraunces';font-size:19px;color:var(--green);text-decoration:none;font-weight:600}
+.logo{font-family:'Fraunces';font-size:24px;color:var(--green);text-decoration:none;font-weight:600;letter-spacing:-.3px}
 .logo span{color:var(--gold)}
 .nl{display:flex;align-items:center;gap:2px}
 .nl a{color:var(--mut);text-decoration:none;font-size:14px;font-weight:500;padding:8px 14px;border-radius:20px;transition:.18s}
@@ -69,6 +69,10 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 .lg:hover{transform:translateY(-2px)}
 .lg.citi:hover{color:#004685}.lg.det:hover{color:#e2007a}.lg.chv:hover{color:#0b2d71}.lg.ifc:hover{color:#002244}
 .lg.cdc:hover{color:#35b6b4}.lg.sb:hover{color:#808080}.lg.vf:hover{color:#e60000}.lg.lq:hover{color:#00aeef}
+.lg.sbk:hover{color:#0033a1}.lg.tmo:hover{color:#e20074}
+.lrow img{height:30px;width:auto;max-width:150px;filter:grayscale(1) opacity(.62);transition:.25s;display:block}
+.lrow img:hover{filter:none;transform:translateY(-2px)}
+.lrow .fb{display:none}
 /* sections */
 section{padding:84px 0}
 .kick{font-size:11.5px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--gold2);margin-bottom:12px}
@@ -80,7 +84,8 @@ section h2{font-size:clamp(28px,3.4vw,38px)}
 .exc{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:32px 30px;text-decoration:none;
  transition:.22s;display:flex;flex-direction:column;box-shadow:0 6px 24px rgba(24,45,35,.05)}
 .exc:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(201,162,39,.5)}
-.exc .ico{width:54px;height:54px;border-radius:16px;background:rgba(201,162,39,.14);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px}
+.exc .ico{width:54px;height:54px;border-radius:16px;background:rgba(201,162,39,.14);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.exc .ico svg{width:26px;height:26px;fill:none;stroke:var(--green2);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .exc h3{font-size:21px;margin-bottom:10px}
 .exc p{font-size:13.5px;color:var(--mut);margin-bottom:22px}
 .exc .go{margin-top:auto;font-size:13.5px;font-weight:700;color:var(--green);display:flex;align-items:center;gap:8px;transition:.2s}
@@ -122,6 +127,7 @@ section h2{font-size:clamp(28px,3.4vw,38px)}
 .dl a:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(21,89,65,.4)}
 .dl b{color:var(--green);font-size:14.5px}
 .dl span{display:block;color:var(--mut);font-size:12.5px;margin-top:6px}
+.dl .dtag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--gold2);margin:4px 0 0}
 .ghrow{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px 28px;box-shadow:0 4px 18px rgba(24,45,35,.04)}
 .ghrow p{flex:1;min-width:260px;font-size:13.5px;color:var(--mut)}
 .ghrow p b{color:var(--green)}
@@ -169,7 +175,7 @@ footer a{color:var(--green);text-decoration:none;font-weight:600;margin-left:16p
       transactions</b> across TMT and AI infrastructure — at Citi, Deutsche Telekom's Detecon, and in operating roles.
       Explore the work below: it's <b>live, auditable and interactive.</b></p>
       <div class="cta rv" style="transition-delay:.15s">
-        <a class="btn solid" href="dashboard/Finance_AI_Dashboard.html" target="_blank" rel="noopener">▶&nbsp; Step into the Deal Lab</a>
+        <a class="btn solid" href="dashboard/Finance_AI_Dashboard.html" target="_blank" rel="noopener">Step into the Deal Lab</a>
         <a class="btn line" href="#about">More about me</a>
       </div>
       <p class="trust rv" style="transition-delay:.2s">Trusted on mandates for <b>Citi · IFC (World Bank) · CDC Group · SoftBank</b></p>
@@ -189,32 +195,34 @@ footer a{color:var(--green);text-decoration:none;font-weight:600;margin-left:16p
 <div class="logos"><div class="wrap">
   <div class="lbl">Deal &amp; engagement experience across</div>
   <div class="lrow">
-    <span class="lg citi" style="font-size:23px;letter-spacing:-.5px">citi</span>
+    <span><img src="assets/logos/citi.svg" alt="" style="height:34px" onerror="if(!this.dataset.p){this.dataset.p=1;this.src='assets/logos/citi.png';}else{this.style.display='none';this.nextElementSibling.style.display='inline-block';}"><span class="fb"><span class="lg citi" style="font-size:23px;letter-spacing:-.5px">citi</span></span></span>
     <span class="lg det">Detecon<small>DEUTSCHE TELEKOM GROUP</small></span>
-    <span class="lg chv" style="letter-spacing:3px">CHEVRON</span>
-    <span class="lg ifc" style="font-family:Georgia,serif">IFC<small>WORLD BANK GROUP</small></span>
-    <span class="lg cdc">CDC Group</span>
-    <span class="lg sb" style="font-weight:800">SoftBank</span>
-    <span class="lg vf">vodafone</span>
-    <span class="lg lq" style="font-weight:600">Liquid Telecom</span>
+    <span><img src="assets/logos/chevron.svg" alt="" style="height:38px" onerror="if(!this.dataset.p){this.dataset.p=1;this.src='assets/logos/chevron.png';}else{this.style.display='none';this.nextElementSibling.style.display='inline-block';}"><span class="fb"><span class="lg chv" style="letter-spacing:3px">CHEVRON</span></span></span>
+    <span><img src="assets/logos/ifc.svg" alt="" style="height:34px" onerror="if(!this.dataset.p){this.dataset.p=1;this.src='assets/logos/ifc.png';}else{this.style.display='none';this.nextElementSibling.style.display='inline-block';}"><span class="fb"><span class="lg ifc" style="font-family:Georgia,serif">IFC<small>WORLD BANK GROUP</small></span></span></span>
+    <span><img src="assets/logos/cdc.svg" alt="" onerror="if(!this.dataset.p){this.dataset.p=1;this.src='assets/logos/cdc.png';}else{this.style.display='none';this.nextElementSibling.style.display='inline-block';}"><span class="fb"><span class="lg cdc">CDC Group</span></span></span>
+    <span><img src="assets/logos/softbank.svg" alt="" style="height:26px" onerror="if(!this.dataset.p){this.dataset.p=1;this.src='assets/logos/softbank.png';}else{this.style.display='none';this.nextElementSibling.style.display='inline-block';}"><span class="fb"><span class="lg sb" style="font-weight:800">SoftBank</span></span></span>
+    <span><img src="assets/logos/vodafone.svg" alt="" style="height:34px" onerror="if(!this.dataset.p){this.dataset.p=1;this.src='assets/logos/vodafone.png';}else{this.style.display='none';this.nextElementSibling.style.display='inline-block';}"><span class="fb"><span class="lg vf">vodafone</span></span></span>
+    <span><img src="assets/logos/liquid.svg" alt="" onerror="if(!this.dataset.p){this.dataset.p=1;this.src='assets/logos/liquid.png';}else{this.style.display='none';this.nextElementSibling.style.display='inline-block';}"><span class="fb"><span class="lg lq" style="font-weight:600">Liquid Telecom</span></span></span>
+    <span><img src="assets/logos/standardbank.svg" alt="" style="height:30px" onerror="if(!this.dataset.p){this.dataset.p=1;this.src='assets/logos/standardbank.png';}else{this.style.display='none';this.nextElementSibling.style.display='inline-block';}"><span class="fb"><span class="lg sbk">Standard Bank</span></span></span>
+    <span><img src="assets/logos/tmobile.svg" alt="" style="height:28px" onerror="if(!this.dataset.p){this.dataset.p=1;this.src='assets/logos/tmobile.png';}else{this.style.display='none';this.nextElementSibling.style.display='inline-block';}"><span class="fb"><span class="lg tmo" style="font-weight:800">T-Mobile</span></span></span>
   </div>
 </div></div>
 
 <section id="explore"><div class="wrap">
   <div class="kick rv">Explore</div>
-  <h2 class="rv">Pick a door. <em style="color:var(--gold2)">Dive deeper.</em></h2>
-  <p class="lead rv">Three ways in — a live modeling suite you can drive, the transaction track record behind it, and the models and code themselves.</p>
+  <h2 class="rv">Three ways <em style="color:var(--gold2)">in.</em></h2>
+  <p class="lead rv">A live modeling suite you can drive, the transaction track record behind it, and the models and code themselves. Click what interests you.</p>
   <div class="ex">
     <a class="exc rv" href="dashboard/Finance_AI_Dashboard.html" target="_blank" rel="noopener">
-      <div class="ico">📊</div><h3>The Deal Lab</h3>
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19h16M7 15v-4m5 4V7m5 8v-6"/></svg></div><h3>The Deal Lab</h3>
       <p>Three live three-statement models — AI (Palantir), SaaS (HubSpot), fintech (SoFi). Flip scenarios, filter regions, read the auto-synopsis, export a board memo.</p>
       <span class="go">Open the live dashboard&nbsp;→</span></a>
     <a class="exc rv" style="transition-delay:.08s" href="#experience">
-      <div class="ico">🤝</div><h3>Deal Experience</h3>
+      <div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 13h16"/></svg></div><h3>Deal Experience</h3>
       <p>$1.0B+ disclosed value across 14 engagements and 11 geographies — capital raises, M&amp;A diligence, market entry and restructuring, filterable by type.</p>
       <span class="go">See the track record&nbsp;→</span></a>
     <a class="exc rv" style="transition-delay:.16s" href="#models">
-      <div class="ico">🧮</div><h3>Models &amp; Code</h3>
+      <div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 10v10"/></svg></div><h3>Models &amp; Code</h3>
       <p>Download the three Excel models — 12 tabs each, fully tied, source-cited, version-logged — and browse the code and data pipeline on GitHub.</p>
       <span class="go">Get the files&nbsp;→</span></a>
   </div>
@@ -222,7 +230,7 @@ footer a{color:var(--green);text-decoration:none;font-weight:600;margin-left:16p
 
 <section id="about" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
   <div class="agrid">
-    <div class="aphoto rv"><img src="assets/avash.jpg" alt="Avash Pardhootman" onerror="this.parentElement.style.display='none'"></div>
+    <div class="aphoto rv"><img src="assets/avash2.jpg" alt="Avash Pardhootman" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='assets/avash.jpg';}else{this.parentElement.style.display='none';}"></div>
     <div class="about rv" style="transition-delay:.08s">
       <div class="kick">About — Synopsis</div>
       <h2 style="margin-bottom:18px">Deal discipline, <em style="color:var(--gold2)">operator range.</em></h2>
@@ -290,11 +298,11 @@ footer a{color:var(--green);text-decoration:none;font-weight:600;margin-left:16p
   <h2 class="rv">The models &amp; the <em style="color:var(--gold2)">code behind them.</em></h2>
   <p class="lead rv">Each workbook: 12 tabs, driver-based forecasts, regional scenario engines, guidance-based variance
   flagging, competitor benchmarking, full source citations and a version-history audit trail. <b>Balance sheets tie in
-  every period, under every scenario.</b> Formulas are protected; inputs stay flexible so you can drive the scenarios.</p>
+  every period, under every scenario.</b> Each model also carries a market layer: current Treasury curve, Fed funds and trading multiples with refresh stamps, and an implied-valuation cross-check that prices the model's own forecast against live EV/Revenue and P/E multiples. Competitor benchmarking sets each company against two public comps and industry medians — SaaS growth, margin and Rule-of-40 buckets for the software names; P/E, ROE and price-to-tangible-book norms for the bank — with written takeaways on what the gaps mean.</p>
   <div class="dl">
-    <a class="rv" href="models/Three_Statement_Model_AI_Palantir.xlsx" download><b>⬇&nbsp; AI model — Palantir</b><span>Compute cost per query · subscription tiers · enterprise contract value</span></a>
-    <a class="rv" style="transition-delay:.07s" href="models/Three_Statement_Model_SaaS_HubSpot.xlsx" download><b>⬇&nbsp; SaaS model — HubSpot</b><span>MRR · NRR · CAC · churn roll-forward · LTV/CAC &amp; payback KPIs</span></a>
-    <a class="rv" style="transition-delay:.14s" href="models/Three_Statement_Model_Fintech_SoFi.xlsx" download><b>⬇&nbsp; Fintech model — SoFi</b><span>Originations · take rates · delinquency-driven provisions · bank-style NII</span></a>
+    <a class="rv" href="models/Three_Statement_Model_AI_Palantir.xlsx" download><b>AI model — Palantir</b><span class='dtag'>Download ↓</span><span>Compute cost per query · subscription tiers · enterprise contract value</span></a>
+    <a class="rv" style="transition-delay:.07s" href="models/Three_Statement_Model_SaaS_HubSpot.xlsx" download><b>SaaS model — HubSpot</b><span class='dtag'>Download ↓</span><span>MRR · NRR · CAC · churn roll-forward · LTV/CAC &amp; payback KPIs</span></a>
+    <a class="rv" style="transition-delay:.14s" href="models/Three_Statement_Model_Fintech_SoFi.xlsx" download><b>Fintech model — SoFi</b><span class='dtag'>Download ↓</span><span>Originations · take rates · delinquency-driven provisions · bank-style NII</span></a>
   </div>
   <div class="ghrow rv">
     <p><b>On GitHub:</b> the dashboard source, the Python market-data refresh pipeline, and the full modeling suite —
@@ -309,6 +317,7 @@ footer a{color:var(--green);text-decoration:none;font-weight:600;margin-left:16p
     <p>Open to Corporate Development, Strategic Finance and Transaction Advisory conversations — Director / VP level · TMT · AI · fintech.</p>
     <div class="cta">
       <a class="btn gold" href="https://www.linkedin.com/in/avashpardhootman/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+      <a class="btn line" href="mailto:avash.pardhootman@gmail.com?subject=Resume%20request%20%E2%80%94%20via%20your%20portfolio%20site&body=Hi%20Avash%2C%0A%0AI%20found%20your%20portfolio%20site%20and%20would%20like%20a%20copy%20of%20your%20latest%20resume.%0A%0AThanks%2C%0A">Request my latest resume</a>
       <a class="btn line" href="mailto:avash.pardhootman@gmail.com">avash.pardhootman@gmail.com</a>
     </div>
   </div>
