@@ -20,7 +20,7 @@
   --line:#212724;
   --line-soft:#181d1b;
   --ink:#eef1ee;
-  --mut:#8a978e;
+  --mut:#95a29a;
   --mut-dim:#5c655f;
   --accent:#22c55e;
   --accent-dim:#16833e;
@@ -43,7 +43,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 a{color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
 h1,h2,h3{font-family:var(--sans);font-weight:800;letter-spacing:-.5px;color:var(--ink)}
-em{font-style:normal;color:var(--accent)}
+em{font-style:normal;color:var(--accent);text-shadow:0 0 28px rgba(34,197,94,.35)}
 .mono{font-family:var(--mono)}
 
 /* ---------- nav ---------- */
@@ -61,13 +61,13 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 .nl a.on{color:var(--ink)}
 .nl a.on .n{color:var(--accent)}
 .nl a.resume{color:var(--mut)}
-.nl a.cta{background:var(--accent);color:#04150a;font-weight:700;margin-left:6px;padding:10px 20px;font-size:13px}
+.nl a.cta{background:var(--accent);color:#04150a;font-weight:700;margin-left:6px;padding:10px 22px;font-size:13px;border-radius:999px}
 .nl a.cta:hover{background:#3ddc73;color:#04150a}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
 .burger span{width:22px;height:2px;background:var(--ink);transition:.2s}
 
 /* ---------- buttons ---------- */
-.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:8px;font-size:14px;
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:999px;font-size:14px;
   font-weight:600;text-decoration:none;transition:.2s;border:1px solid transparent;font-family:var(--sans)}
 .btn.solid{background:var(--accent);color:#04150a}
 .btn.solid:hover{background:#3ddc73;transform:translateY(-2px);box-shadow:0 14px 34px rgba(34,197,94,.25)}
@@ -92,10 +92,17 @@ section h2{font-size:clamp(28px,3.6vw,42px);line-height:1.1}
 @keyframes pulse-dot{0%,100%{opacity:1;box-shadow:0 0 10px var(--accent)}50%{opacity:.45;box-shadow:0 0 4px var(--accent)}}
 
 /* ---------- hero ---------- */
-.hero{padding:88px 0 72px}
+.hero{padding:88px 0 72px;position:relative}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(ellipse 75% 85% at 50% 40%,#000 30%,transparent 100%);
+  mask-image:radial-gradient(ellipse 75% 85% at 50% 40%,#000 30%,transparent 100%)}
+.hero .wrap{position:relative}
 .hgrid{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center}
 .hero h1{font-size:clamp(38px,5.2vw,60px);line-height:1.08}
-.hero .sub{color:var(--mut);font-size:17px;margin:22px 0 32px;max-width:540px}
+.hero .sub{color:var(--mut);font-size:16px;margin:22px 0 32px;max-width:540px}
 .hero .sub b{color:var(--ink)}
 .cta{display:flex;flex-wrap:wrap;gap:13px}
 .trust{margin-top:28px;font-family:var(--mono);font-size:12px;color:var(--mut-dim)}
@@ -118,17 +125,25 @@ section h2{font-size:clamp(28px,3.6vw,42px);line-height:1.1}
 
 /* ---------- stock ticker strip ---------- */
 .ticker{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  background:var(--bg-elev);padding:15px 0}
+  background:var(--bg-elev)}
+.ticker-hd{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;font-family:var(--mono);
+  font-size:10.5px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:var(--mut-dim);
+  padding:12px 28px;border-bottom:1px dashed var(--line-soft);position:relative;z-index:3}
+.ticker-hd .live{color:var(--accent);display:inline-flex;align-items:center;gap:7px}
+.ticker-hd .live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 8px var(--accent);animation:pulse-dot 2.2s ease-in-out infinite}
 .ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
 .ticker::before{left:0;background:linear-gradient(90deg,var(--bg-elev),transparent)}
 .ticker::after{right:0;background:linear-gradient(270deg,var(--bg-elev),transparent)}
-.ticker-track{display:flex;align-items:baseline;gap:52px;width:max-content;animation:ticker-scroll 45s linear infinite}
+.ticker-track{display:flex;align-items:baseline;gap:52px;width:max-content;padding:15px 0;
+  animation:ticker-scroll 45s linear infinite}
 .ticker:hover .ticker-track{animation-play-state:paused}
 @keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
 .tick{display:inline-flex;align-items:baseline;gap:9px;font-family:var(--mono);white-space:nowrap}
 .tick .sym{font-weight:700;color:var(--ink);font-size:13px;letter-spacing:.8px}
 .tick .val{color:var(--gold);font-size:13px;font-weight:600}
+.tick .val.nd{color:var(--gold-dim)}
 .tick .chg{font-size:11px;color:var(--accent);letter-spacing:.5px}
 
 /* ---------- logo strip ---------- */
@@ -147,15 +162,15 @@ section h2{font-size:clamp(28px,3.6vw,42px);line-height:1.1}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;
-  transition:.22s;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+  transition:.22s;box-shadow:0 6px 24px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.035)}
 a.panel{text-decoration:none;display:flex;flex-direction:column}
 a.panel:hover{transform:translateY(-6px);border-color:rgba(34,197,94,.4);box-shadow:0 24px 60px rgba(34,197,94,.1)}
 .panel .ico{width:50px;height:50px;border-radius:10px;background:var(--accent-glow);display:flex;align-items:center;
   justify-content:center;margin-bottom:22px;border:1px solid rgba(34,197,94,.22)}
 .panel .ico svg{width:24px;height:24px;fill:none;stroke:var(--accent);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .panel .tagline{font-family:var(--mono);font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
-.panel h3{font-size:20px;margin-bottom:10px;font-weight:700}
-.panel p{font-size:13.5px;color:var(--mut);margin-bottom:22px;flex:1}
+.panel h3{font-size:19px;margin-bottom:10px;font-weight:700}
+.panel p{font-size:14.5px;color:var(--mut);margin-bottom:22px;flex:1}
 .panel .go{margin-top:auto;font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--ink);
   display:flex;align-items:center;gap:8px;transition:.2s}
 a.panel:hover .go{gap:14px;color:var(--accent)}
@@ -166,6 +181,7 @@ a.panel:hover .go{gap:14px;color:var(--accent)}
 .wid-row .num{font-family:var(--mono);color:var(--mut-dim);font-size:14px}
 .wid-row h4{font-size:19px;margin-bottom:8px;font-weight:700}
 .wid-row p{color:var(--mut);font-size:14.5px;max-width:640px}
+.wid-row h4,.panel h3,.currently h3{letter-spacing:-.3px}
 
 /* ---------- stats band ---------- */
 .band{background:var(--bg-elev);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:60px 0}
@@ -179,11 +195,11 @@ a.panel:hover .go{gap:14px;color:var(--accent)}
 .currently .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);
   display:inline-block;margin-right:10px;animation:pulse-dot 2.2s ease-in-out infinite}
 .currently h3{font-size:19px;font-weight:700;display:flex;align-items:center}
-.currently p{color:var(--mut);font-size:13.5px;margin-top:6px}
+.currently p{color:var(--mut);font-size:14px;margin-top:6px}
 
 /* ---------- deals / track record ---------- */
 .filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:30px}
-.f-pill{border:1px solid var(--line);background:var(--panel);color:var(--mut);border-radius:7px;padding:9px 18px;
+.f-pill{border:1px solid var(--line);background:var(--panel);color:var(--mut);border-radius:999px;padding:9px 19px;
   font-size:12.5px;font-weight:600;cursor:pointer;transition:.18s;font-family:var(--sans)}
 .f-pill:hover{color:var(--ink);border-color:var(--mut)}
 .f-pill.on{background:var(--accent);color:#04150a;border-color:var(--accent)}
@@ -199,7 +215,7 @@ a.panel:hover .go{gap:14px;color:var(--accent)}
 .deal .pill{align-self:flex-start;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.6px;
   text-transform:uppercase;color:#04150a;background:var(--accent);border-radius:5px;padding:4px 10px;margin-top:auto}
 .deal .pill.b{background:none;border:1px solid var(--gold);color:var(--gold)}
-.exp{font-size:13px;color:var(--mut);margin-top:30px;line-height:1.9}
+.exp{font-size:14px;color:var(--mut);margin-top:30px;line-height:1.9}
 .exp b{color:var(--ink)}
 
 /* ---------- models / downloads ---------- */
@@ -208,16 +224,16 @@ a.panel:hover .go{gap:14px;color:var(--accent)}
   text-decoration:none;transition:.2s;display:block}
 .dl a:hover{transform:translateY(-4px);border-color:rgba(34,197,94,.4)}
 .dl b{color:var(--ink);font-size:15px;font-weight:700}
-.dl span{display:block;color:var(--mut);font-size:12.5px;margin-top:8px}
+.dl span{display:block;color:var(--mut);font-size:13px;margin-top:8px}
 .dl .dtag{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.6px;
   text-transform:uppercase;color:var(--gold);margin:6px 0 2px}
 .ghrow{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:28px;background:var(--panel);
   border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px}
-.ghrow p{flex:1;min-width:260px;font-size:13.5px;color:var(--mut)}
+.ghrow p{flex:1;min-width:260px;font-size:14.5px;color:var(--mut)}
 .ghrow p b{color:var(--ink)}
 
 /* ---------- about ---------- */
-.about p{color:#c4cbc6;font-size:15.5px;margin-bottom:16px;max-width:720px}
+.about p{color:var(--mut);font-size:15px;margin-bottom:16px;max-width:720px}
 .about p b{color:var(--ink)}
 .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
 .chip{font-family:var(--mono);font-size:11.5px;font-weight:600;color:var(--ink);background:var(--panel);
@@ -278,9 +294,9 @@ footer .wrap{border-top:1px solid var(--line);padding-top:26px}
   .contact{padding:44px 24px}
   .currently{padding:26px 22px}
   .ghrow{padding:22px 20px}
-  .ticker{padding:12px 0}
   .ticker::before,.ticker::after{width:40px}
-  .ticker-track{gap:36px;animation-duration:32s}
+  .ticker-hd{padding:10px 16px;font-size:9.5px;letter-spacing:1.2px}
+  .ticker-track{gap:36px;padding:12px 0;animation-duration:32s}
   .tick .sym,.tick .val{font-size:12px}
   .tick .chg{font-size:10px}
 }
