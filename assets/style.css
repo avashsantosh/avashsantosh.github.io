@@ -87,7 +87,9 @@ section h2{font-size:clamp(28px,3.6vw,42px);line-height:1.1}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;font-weight:600;
   letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);background:var(--accent-glow);
   border:1px solid rgba(34,197,94,.28);border-radius:6px;padding:7px 14px;margin-bottom:24px}
-.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);
+  animation:pulse-dot 2.2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;box-shadow:0 0 10px var(--accent)}50%{opacity:.45;box-shadow:0 0 4px var(--accent)}}
 
 /* ---------- hero ---------- */
 .hero{padding:88px 0 72px}
@@ -160,7 +162,7 @@ a.panel:hover .go{gap:14px;color:var(--accent)}
 .currently{display:flex;flex-wrap:wrap;align-items:center;gap:24px;justify-content:space-between;
   padding:34px 32px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
 .currently .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);
-  display:inline-block;margin-right:10px}
+  display:inline-block;margin-right:10px;animation:pulse-dot 2.2s ease-in-out infinite}
 .currently h3{font-size:19px;font-weight:700;display:flex;align-items:center}
 .currently p{color:var(--mut);font-size:13.5px;margin-top:6px}
 
@@ -255,3 +257,10 @@ footer .wrap{border-top:1px solid var(--line);padding-top:26px}
   .currently{flex-direction:column;align-items:flex-start}
 }
 @media(min-width:561px) and (max-width:900px){.dgrid,.dl{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){
+  .term-row{flex-direction:column;align-items:flex-start;gap:6px;padding:15px 0}
+  .term-row .v{font-size:17px!important}
+  .contact{padding:44px 24px}
+  .currently{padding:26px 22px}
+  .ghrow{padding:22px 20px}
+}
