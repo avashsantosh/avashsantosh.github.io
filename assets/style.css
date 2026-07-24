@@ -220,13 +220,20 @@ a.panel:hover .go{gap:14px;color:var(--accent)}
 
 /* ---------- models / downloads ---------- */
 .dl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.dl a{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;
-  text-decoration:none;transition:.2s;display:block}
-.dl a:hover{transform:translateY(-4px);border-color:rgba(34,197,94,.4)}
-.dl b{color:var(--ink);font-size:15px;font-weight:700}
-.dl span{display:block;color:var(--mut);font-size:13px;margin-top:8px}
-.dl .dtag{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.6px;
-  text-transform:uppercase;color:var(--gold);margin:6px 0 2px}
+.dl a{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;
+  text-decoration:none;transition:.2s;display:flex;flex-direction:column}
+.dl a:hover{transform:translateY(-4px);border-color:rgba(34,197,94,.4);box-shadow:0 18px 44px rgba(34,197,94,.08)}
+.dl .dtag{display:block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:1.2px;
+  text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+.dl b{display:block;color:var(--ink);font-size:19px;font-weight:800;letter-spacing:-.3px;margin-bottom:10px}
+.dl span{display:block;color:var(--mut);font-size:13.5px;line-height:1.6}
+.dl .why{flex:1;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line-soft);font-size:13px}
+.dl .wlbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:6px}
+.dl .dlbtn{display:inline-flex;flex:none;align-items:center;gap:8px;align-self:flex-start;margin-top:22px;
+  background:var(--accent);color:#04150a;font-family:var(--sans);font-size:13px;font-weight:700;
+  border-radius:999px;padding:11px 24px;transition:.2s}
+.dl a:hover .dlbtn{background:#3ddc73;box-shadow:0 10px 26px rgba(34,197,94,.25)}
 .ghrow{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:28px;background:var(--panel);
   border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px}
 .ghrow p{flex:1;min-width:260px;font-size:14.5px;color:var(--mut)}
@@ -294,6 +301,8 @@ footer .wrap{border-top:1px solid var(--line);padding-top:26px}
   .contact{padding:44px 24px}
   .currently{padding:26px 22px}
   .ghrow{padding:22px 20px}
+  .dl a{padding:24px 22px}
+  .dl .dlbtn{align-self:stretch;justify-content:center}
   .ticker::before,.ticker::after{width:40px}
   .ticker-hd{padding:10px 16px;font-size:9.5px;letter-spacing:1.2px}
   .ticker-track{gap:36px;padding:12px 0;animation-duration:32s}
