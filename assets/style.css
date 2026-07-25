@@ -123,28 +123,27 @@ section h2{font-size:clamp(28px,3.6vw,42px);line-height:1.1}
 .term-foot{padding:14px 24px;border-top:1px solid var(--line);background:var(--bg-elev);font-family:var(--mono);
   font-size:11px;color:var(--mut-dim);display:flex;justify-content:space-between}
 
-/* ---------- stock ticker strip ---------- */
-.ticker{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  background:var(--bg-elev)}
-.ticker-hd{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;font-family:var(--mono);
-  font-size:10.5px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:var(--mut-dim);
-  padding:12px 28px;border-bottom:1px dashed var(--line-soft);position:relative;z-index:3}
-.ticker-hd .live{color:var(--accent);display:inline-flex;align-items:center;gap:7px}
-.ticker-hd .live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);
+/* ---------- stock ticker strip (site-wide, top of every page) ---------- */
+.ticker{display:flex;align-items:stretch;border-bottom:1px solid var(--line);background:var(--bg-elev)}
+.ticker-tag{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;font-family:var(--mono);
+  font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);
+  white-space:nowrap;border-right:1px solid var(--line);background:var(--bg-elev);position:relative;z-index:3}
+.ticker-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);
   box-shadow:0 0 8px var(--accent);animation:pulse-dot 2.2s ease-in-out infinite}
-.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
-.ticker::before{left:0;background:linear-gradient(90deg,var(--bg-elev),transparent)}
-.ticker::after{right:0;background:linear-gradient(270deg,var(--bg-elev),transparent)}
-.ticker-track{display:flex;align-items:baseline;gap:52px;width:max-content;padding:15px 0;
+.ticker-tape{position:relative;overflow:hidden;flex:1}
+.ticker-tape::before,.ticker-tape::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none}
+.ticker-tape::before{left:0;background:linear-gradient(90deg,var(--bg-elev),transparent)}
+.ticker-tape::after{right:0;background:linear-gradient(270deg,var(--bg-elev),transparent)}
+.ticker-track{display:flex;align-items:center;gap:52px;width:max-content;padding:11px 0;
   animation:ticker-scroll 45s linear infinite}
-.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-tape:hover .ticker-track{animation-play-state:paused}
 @keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
 .tick{display:inline-flex;align-items:baseline;gap:9px;font-family:var(--mono);white-space:nowrap}
-.tick .sym{font-weight:700;color:var(--ink);font-size:13px;letter-spacing:.8px}
-.tick .val{color:var(--gold);font-size:13px;font-weight:600}
+.tick .sym{font-weight:700;color:var(--ink);font-size:12.5px;letter-spacing:.8px}
+.tick .val{color:var(--gold);font-size:12.5px;font-weight:600}
 .tick .val.nd{color:var(--gold-dim)}
-.tick .chg{font-size:11px;color:var(--accent);letter-spacing:.5px}
+.tick .chg{font-size:10.5px;color:var(--accent);letter-spacing:.5px}
 
 /* ---------- logo strip ---------- */
 .logos{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-elev);padding:34px 0}
@@ -303,9 +302,10 @@ footer .wrap{border-top:1px solid var(--line);padding-top:26px}
   .ghrow{padding:22px 20px}
   .dl a{padding:24px 22px}
   .dl .dlbtn{align-self:stretch;justify-content:center}
-  .ticker::before,.ticker::after{width:40px}
-  .ticker-hd{padding:10px 16px;font-size:9.5px;letter-spacing:1.2px}
-  .ticker-track{gap:36px;padding:12px 0;animation-duration:32s}
+  .ticker{flex-direction:column}
+  .ticker-tag{border-right:0;border-bottom:1px dashed var(--line-soft);padding:8px 16px;font-size:9.5px;letter-spacing:1.2px}
+  .ticker-tape::before,.ticker-tape::after{width:36px}
+  .ticker-track{gap:36px;padding:9px 0;animation-duration:32s}
   .tick .sym,.tick .val{font-size:12px}
   .tick .chg{font-size:10px}
 }
